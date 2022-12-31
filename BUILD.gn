@@ -1,4 +1,12 @@
+config("my_lib_config") {
+  defines = [ "ENABLE_DOOM_MELON" ]
+  include_dirs = [ "/data/data/com.termux/files/home/SRC/gn/src" ]
+}
+    
 executable("hello") {
   sources = [ "main.cc" ]
+  configs += [
+    ":my_lib_config",
+  ]    
 
 }
