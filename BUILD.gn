@@ -1,12 +1,19 @@
-config("my_lib_config") {
-  defines = [ "ENABLE_DOOM_MELON" ]
-  include_dirs = [ "/data/data/com.termux/files/home/SRC/gn/src" ]
-}
+# config("my_lib_config") {
+#  defines = [ "ENABLE_DOOM_MELON" ]
+#  include_dirs = [ "/data/data/com.termux/files/home/SRC/gn/src"#  ]
+# }
     
 executable("hello") {
-  sources = [ "main.cc" ]
-  configs += [
-    ":my_lib_config",
-  ]    
+    sources = [ "main.cc" ]
 
+#   configs += [
+#       ":my_lib_config",
+#   ]
+
+    
+    cflags_cc = ["--std=c++17"]
+    include_dirs = [ "/data/data/com.termux/files/home/SRC/gn/src" ]
+    libs = [ "/data/data/com.termux/files/home/SRC/gn/out/base.a",
+             "/data/data/com.termux/files/home/SRC/gn/out/gn_lib.a"
+    ]
 }
